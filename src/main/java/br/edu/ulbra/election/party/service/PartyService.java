@@ -98,13 +98,13 @@ public class PartyService {
         if (StringUtils.isBlank(partyInput.getCode())){
             throw new GenericOutputException("Invalid code");
         }
-        if(partyRepository.findByCodeExists(partyInput.getCode()) != null){
+        if(partyRepository.findByCode(partyInput.getCode()) != null){
             throw new GenericOutputException("Code already exists");
         }
         if (partyInput.getNumber() == null || partyInput.getNumber() < 10){
             throw new GenericOutputException("Invalid number");
         }
-        if(partyRepository.findByNumberExists(partyInput.getNumber()) != null){
+        if(partyRepository.findByNumber(partyInput.getNumber()) != null){
             throw new GenericOutputException("Number already exists");
         }
     }

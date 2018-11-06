@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:file:/tmp/party
+    url: jdbc:h2:file:/tmp/db/party
     platform: h2
     username: sa
     driver-class-name: org.h2.Driver
