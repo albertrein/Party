@@ -98,11 +98,21 @@ public class PartyService {
         if (StringUtils.isBlank(partyInput.getCode())){
             throw new GenericOutputException("Invalid code");
         }
+        if(partyRepository.findByCodeExists(partyInput.getCode()) != null){
+            throw new GenericOutputException("Code already exists");
+        }
         if (partyInput.getNumber() == null){
             throw new GenericOutputException("Invalid number");
+        }
+        if(partyRepository.findByNumberExists(partyInput.getNumber()) != null){
+            throw new GenericOutputException("Number already exists");
         }
     }
 
 }
+// **Feito :
+// - Não pode ter mais de um partido com o mesmo código
+// - Não pode ter mais de um partido com o mesmo número
 
-
+// * FALTA :
+// - O número de um partido deve ser composto obrigatoriamente de 2 dígitos
