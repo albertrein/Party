@@ -99,13 +99,17 @@ public class PartyService {
             throw new GenericOutputException("Invalid code");
         }
         if(partyRepository.findByCode(partyInput.getCode()) != null){
-            throw new GenericOutputException("Code already exists");
+            if(!isUpdate) {
+                throw new GenericOutputException("Code already exists");
+            }
         }
         if (partyInput.getNumber() == null || partyInput.getNumber() < 10){
             throw new GenericOutputException("Invalid number");
         }
         if(partyRepository.findByNumber(partyInput.getNumber()) != null){
-            throw new GenericOutputException("Number already exists");
+            if(!isUpdate) {
+                throw new GenericOutputException("Number already exists");
+            }
         }
     }
 
