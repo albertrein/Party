@@ -51,5 +51,3 @@ public class PartyApi {
         return partyService.delete(partyId);
     }
 }
-
-
