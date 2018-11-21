@@ -86,6 +86,7 @@ public class PartyService {
         }
 
         partyRepository.delete(party);
+
         return new GenericOutput("Party deleted");
     }
 

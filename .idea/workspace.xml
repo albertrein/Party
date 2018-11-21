@@ -4,16 +4,7 @@
     <list default="true" id="945f4388-cfa6-4312-8e3a-57627bacbed0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/br/edu/ulbra/election/party/config/ModelMapperConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/br/edu/ulbra/election/party/config/ModelMapperConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/br/edu/ulbra/election/party/model/Party.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/br/edu/ulbra/election/party/model/Party.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/br/edu/ulbra/election/party/repository/PartyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/br/edu/ulbra/election/party/repository/PartyRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/br/edu/ulbra/election/party/service/PartyService$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/br/edu/ulbra/election/party/service/PartyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/br/edu/ulbra/election/party/service/PartyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/api/v1/PartyApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/api/v1/PartyApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/config/ModelMapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/config/ModelMapperConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/model/Party.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/model/Party.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/repository/PartyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/repository/PartyRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/service/PartyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/service/PartyService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -85,10 +76,12 @@
     <session id="-622942687">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -139,7 +132,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/repository/PartyRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="75">
               <caret line="6" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -151,7 +144,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/service/PartyService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="1125">
               <caret line="87" column="38" selection-start-line="87" selection-start-column="38" selection-end-line="87" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -449,7 +442,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6163782688000" />
+        <entry key="$PROJECT_DIR$" value="6166150196000" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="2441852221" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1613248354" />
@@ -615,6 +608,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -673,12 +668,27 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="party" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Party" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="changelog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="party" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Party" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="changelog" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -733,17 +743,20 @@
       <workItem from="1541637308319" duration="1508000" />
       <workItem from="1542579786170" duration="8000" />
       <workItem from="1542580169208" duration="751000" />
+      <workItem from="1542676320604" duration="1199000" />
+      <workItem from="1542705422982" duration="1573000" />
+      <workItem from="1542799345543" duration="634000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21714000" />
+    <option name="totallyTimeSpent" value="25120000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="25" width="1399" height="875" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28011826" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28455284" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -753,7 +766,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32919255" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32885906" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39906833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -888,8 +901,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/repository/PartyRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="75">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/service/PartyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="87" column="38" selection-start-line="87" selection-start-column="38" selection-end-line="87" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -920,16 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1740">
           <caret line="171" column="5" selection-start-line="171" selection-start-column="5" selection-end-line="171" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/ulbra/election/party/service/PartyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="87" column="38" selection-start-line="87" selection-start-column="38" selection-end-line="87" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
