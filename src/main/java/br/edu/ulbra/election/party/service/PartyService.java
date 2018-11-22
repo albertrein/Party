@@ -87,7 +87,7 @@ public class PartyService {
         if (party == null){
             throw new GenericOutputException(MESSAGE_PARTY_NOT_FOUND);
         }
-
+    //can´t delete Party with candidates linked
     try {
         if (candidateClientService.getById(partyId).getId() != null) {
             throw new GenericOutputException("Have Candidates linked yet");
