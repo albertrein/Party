@@ -1,11 +1,13 @@
 package br.edu.ulbra.election.party.service;
 
+import br.edu.ulbra.election.party.client.CandidateClientService;
 import br.edu.ulbra.election.party.exception.GenericOutputException;
 import br.edu.ulbra.election.party.input.v1.PartyInput;
 import br.edu.ulbra.election.party.model.Party;
 import br.edu.ulbra.election.party.output.v1.GenericOutput;
 import br.edu.ulbra.election.party.output.v1.PartyOutput;
 import br.edu.ulbra.election.party.repository.PartyRepository;
+import feign.FeignException;
 import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +16,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @Service
 public class PartyService {
-
+    private CandidateClientService candidateClientService;
     private final PartyRepository partyRepository;
 
     private final ModelMapper modelMapper;
@@ -85,7 +88,20 @@ public class PartyService {
             throw new GenericOutputException(MESSAGE_PARTY_NOT_FOUND);
         }
 
-        partyRepository.delete(party);
+    try {
+        if (candidateClientService.getById(partyId).getId() != null) {
+            throw new GenericOutputException("Have Candidates linked yet");
+        }else{
+            partyRepository.delete(party);
+        }
+    }catch(FeignException e){
+        if(e.status()==500){
+            throw new GenericOutputException("Error can´t delete Party");
+        }
+    }
+
+
+        //partyRepository.delete(party);
 
         return new GenericOutput("Party deleted");
     }
