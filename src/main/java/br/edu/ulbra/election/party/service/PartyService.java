@@ -4,6 +4,7 @@ import br.edu.ulbra.election.party.client.CandidateClientService;
 import br.edu.ulbra.election.party.exception.GenericOutputException;
 import br.edu.ulbra.election.party.input.v1.PartyInput;
 import br.edu.ulbra.election.party.model.Party;
+import br.edu.ulbra.election.party.output.v1.CandidateOutput;
 import br.edu.ulbra.election.party.output.v1.GenericOutput;
 import br.edu.ulbra.election.party.output.v1.PartyOutput;
 import br.edu.ulbra.election.party.repository.PartyRepository;
@@ -28,8 +29,9 @@ public class PartyService {
     private static final String MESSAGE_PARTY_NOT_FOUND = "Party not found";
 
     @Autowired
-    public PartyService(PartyRepository partyRepository, ModelMapper modelMapper){
+    public PartyService(PartyRepository partyRepository,CandidateClientService candidateClientService, ModelMapper modelMapper){
         this.partyRepository = partyRepository;
+        this.candidateClientService = candidateClientService;
         this.modelMapper = modelMapper;
     }
 
@@ -77,35 +79,38 @@ public class PartyService {
         party = partyRepository.save(party);
         return modelMapper.map(party, PartyOutput.class);
     }
+    //verifica se tem algum candidato ainda ligado no partido
+    public void verifyPartyCandidates(Long id){
+        List<CandidateOutput> candidates = candidateClientService.getAll();
+        CandidateOutput candidate;
+        int i=0;
+        for(i=0;i<candidates.size();i++){
+            candidate = candidates.get(i);
+            if(candidate.getPartyOutput().getId()==id){
+                throw new GenericOutputException("The Party has candidates yet");
+            }
+        }
+    }
 
     public GenericOutput delete(Long partyId) {
-        if (partyId == null){
+        if (partyId == null) {
             throw new GenericOutputException(MESSAGE_INVALID_ID);
         }
 
         Party party = partyRepository.findById(partyId).orElse(null);
-        if (party == null){
+        if (party == null) {
             throw new GenericOutputException(MESSAGE_PARTY_NOT_FOUND);
         }
-    //can´t delete Party with candidates linked
-    try {
-        if (candidateClientService.getById(partyId).getId() != null) {
-            throw new GenericOutputException("Have Candidates linked yet");
-        }else{
-            partyRepository.delete(party);
+        try {
+            verifyPartyCandidates(partyId);
+        } catch(FeignException e){
+            if(e.status() == 500){
+                throw new GenericOutputException("Invalid candidate");
+            }
         }
-    }catch(FeignException e){
-        if(e.status()==500){
-            throw new GenericOutputException("Error can´t delete Party");
-        }
-    }
-
-
-        //partyRepository.delete(party);
-
+        partyRepository.delete(party);
         return new GenericOutput("Party deleted");
     }
-
     private void validateDuplicate(PartyInput partyInput, Long id){
         Party party = partyRepository.findFirstByCode(partyInput.getCode());
         if (party != null && !party.getId().equals(id)){
