@@ -41,7 +41,7 @@ public class PartyService {
     }
 
     public PartyOutput create(PartyInput partyInput) {
-        validateInput(partyInput);
+        validateInput(partyInput,false);
         validateDuplicate(partyInput, null);
         Party party = modelMapper.map(partyInput, Party.class);
         party = partyRepository.save(party);
@@ -65,7 +65,7 @@ public class PartyService {
         if (partyId == null){
             throw new GenericOutputException(MESSAGE_INVALID_ID);
         }
-        validateInput(partyInput);
+        validateInput(partyInput,true);
         validateDuplicate(partyInput, partyId);
 
         Party party = partyRepository.findById(partyId).orElse(null);
@@ -122,15 +122,28 @@ public class PartyService {
         }
     }
 
-    private void validateInput(PartyInput partyInput){
-        if (StringUtils.isBlank(partyInput.getName()) || partyInput.getName().trim().length() < 5){
-            throw new GenericOutputException("Invalid Name");
+    private void validateInput(PartyInput partyInput, boolean isUpdate){
+        if (StringUtils.isBlank(partyInput.getName())){
+            throw new GenericOutputException("Invalid name");
+        }
+        if(partyInput.getName().trim().length() < 5){
+            throw new GenericOutputException("Invalid Name, must contain at least 5 characters");
         }
         if (StringUtils.isBlank(partyInput.getCode())){
-            throw new GenericOutputException("Invalid Code");
+            throw new GenericOutputException("Invalid code");
         }
-        if (partyInput.getNumber() == null || partyInput.getNumber() < 10 || partyInput.getNumber() > 99){
-            throw new GenericOutputException("Invalid Party Number");
+        if(partyRepository.findByCode(partyInput.getCode()) != null){
+            if(!isUpdate) {
+                throw new GenericOutputException("Code already exists");
+            }
+        }
+        if (partyInput.getNumber() == null || partyInput.getNumber() < 10 && partyInput.getNumber() > 99){
+            throw new GenericOutputException("Invalid number, must contain 2 characters");
+        }
+        if(partyRepository.findByNumber(partyInput.getNumber()) != null){
+            if(!isUpdate) {
+                throw new GenericOutputException("Number already exists");
+            }
         }
     }
 
