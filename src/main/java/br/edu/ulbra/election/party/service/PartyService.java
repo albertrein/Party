@@ -137,7 +137,7 @@ public class PartyService {
                 throw new GenericOutputException("Code already exists");
             }
         }
-        if (partyInput.getNumber() == null || partyInput.getNumber() < 10 && partyInput.getNumber() > 99){
+        if (partyInput.getNumber() == null || partyInput.getNumber() < 10 || partyInput.getNumber() > 99){
             throw new GenericOutputException("Invalid number, must contain 2 characters");
         }
         if(partyRepository.findByNumber(partyInput.getNumber()) != null){
