@@ -79,15 +79,22 @@ public class PartyService {
         party = partyRepository.save(party);
         return modelMapper.map(party, PartyOutput.class);
     }
+
     //Check if there are any candidates still on the party
     public void verifyPartyCandidates(Long id){
-        List<CandidateOutput> candidates = candidateClientService.getAll();
-        CandidateOutput candidate;
-        int i=0;
-        for(i=0;i<candidates.size();i++){
-            candidate = candidates.get(i);
-            if(candidate.getPartyOutput().getId()==id){
-                throw new GenericOutputException("The Party has candidates yet");
+        try {
+            List<CandidateOutput> candidates = candidateClientService.getAll();
+            CandidateOutput candidate;
+            int i=0;
+            for(i=0;i<candidates.size();i++){
+                candidate = candidates.get(i);
+                if(candidate.getPartyOutput().getId()==id){
+                    throw new GenericOutputException("The Party has candidates yet");
+                }
+            }
+        } catch(FeignException e){
+            if(e.status() == 500){
+                throw new GenericOutputException("Invalid candidate");
             }
         }
     }
@@ -101,13 +108,9 @@ public class PartyService {
         if (party == null) {
             throw new GenericOutputException(MESSAGE_PARTY_NOT_FOUND);
         }
-        try {
-            verifyPartyCandidates(partyId);
-        } catch(FeignException e){
-            if(e.status() == 500){
-                throw new GenericOutputException("Invalid candidate");
-            }
-        }
+
+        verifyPartyCandidates(partyId);
+
         partyRepository.delete(party);
         return new GenericOutput("Party deleted");
     }
