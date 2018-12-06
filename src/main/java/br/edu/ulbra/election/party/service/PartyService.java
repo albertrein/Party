@@ -79,7 +79,7 @@ public class PartyService {
         party = partyRepository.save(party);
         return modelMapper.map(party, PartyOutput.class);
     }
-    //verifica se tem algum candidato ainda ligado no partido
+    //Check if there are any candidates still on the party
     public void verifyPartyCandidates(Long id){
         List<CandidateOutput> candidates = candidateClientService.getAll();
         CandidateOutput candidate;
